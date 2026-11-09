@@ -1,0 +1,25 @@
+/* Estilos extras do login. O visual base continua vindo do style.css */
+
+#barra-usuario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.troca {
+  text-align: center;
+  margin: 12px 0 0;
+}
+
+.link {
+  width: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
