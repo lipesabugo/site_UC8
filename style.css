@@ -1,0 +1,308 @@
+/* ===== Base ===== */
+:root {
+  --fundo: #eef2ff;
+  --fundo-2: #f8fafc;
+  --cartao: #ffffff;
+  --texto: #1e293b;
+  --texto-suave: #64748b;
+  --borda: #e2e8f0;
+  --primaria: #4f46e5;
+  --primaria-hover: #4338ca;
+  --sucesso: #16a34a;
+  --sucesso-fundo: #dcfce7;
+  --erro: #dc2626;
+  --erro-fundo: #fee2e2;
+  --sombra: 0 10px 30px rgba(79, 70, 229, 0.10), 0 2px 6px rgba(15, 23, 42, 0.06);
+  --raio: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0f172a;
+    --fundo-2: #1e1b4b;
+    --cartao: #1e293b;
+    --texto: #e2e8f0;
+    --texto-suave: #94a3b8;
+    --borda: #334155;
+    --primaria: #818cf8;
+    --primaria-hover: #a5b4fc;
+    --sucesso: #4ade80;
+    --sucesso-fundo: rgba(74, 222, 128, 0.14);
+    --erro: #f87171;
+    --erro-fundo: rgba(248, 113, 113, 0.14);
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--texto);
+  background: linear-gradient(160deg, var(--fundo) 0%, var(--fundo-2) 100%) fixed;
+}
+
+main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 40px 16px 64px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 28px 0 12px;
+  font-size: 1.15rem;
+}
+
+a {
+  color: var(--primaria);
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--primaria-hover);
+}
+
+/* ===== Barra do usuário ===== */
+#barra-usuario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 20px;
+  padding: 10px 14px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+#barra-usuario button {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  color: var(--texto);
+  background: transparent;
+  border: 1px solid var(--borda);
+}
+
+#barra-usuario button:hover {
+  background: var(--borda);
+}
+
+/* ===== Formulário ===== */
+form {
+  padding: 22px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+form h2 {
+  margin: 0 0 16px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+  background: transparent;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input::placeholder {
+  color: var(--texto-suave);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primaria);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+/* ===== Botões ===== */
+.botoes {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  padding: 11px 18px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primaria);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
+}
+
+button:hover {
+  background: var(--primaria-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+form .botoes button[type="submit"] {
+  flex: 1;
+}
+
+#botao-cancelar {
+  color: var(--texto);
+  background: transparent;
+  border-color: var(--borda);
+}
+
+#botao-cancelar:hover {
+  background: var(--borda);
+}
+
+/* ===== Mensagens ===== */
+#mensagem {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-radius: 10px;
+}
+
+#mensagem:empty {
+  display: none;
+}
+
+#mensagem.erro {
+  color: var(--erro);
+  background: var(--erro-fundo);
+}
+
+#mensagem.sucesso {
+  color: var(--sucesso);
+  background: var(--sucesso-fundo);
+}
+
+/* ===== Lista de produtos ===== */
+#lista {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--texto-suave);
+}
+
+#lista li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  color: var(--texto);
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#lista li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra);
+}
+
+.preco {
+  margin-top: 2px;
+  font-weight: 700;
+  color: var(--sucesso);
+}
+
+#lista .botoes button {
+  padding: 7px 12px;
+  font-size: 0.85rem;
+  background: transparent;
+}
+
+#lista .editar {
+  color: var(--primaria);
+  border-color: var(--primaria);
+}
+
+#lista .editar:hover {
+  color: #fff;
+  background: var(--primaria);
+}
+
+#lista .apagar {
+  color: var(--erro);
+  border-color: var(--erro);
+}
+
+#lista .apagar:hover {
+  color: #fff;
+  background: var(--erro);
+}
+
+/* ===== Login ===== */
+.troca {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.link {
+  width: auto;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--primaria);
+  text-decoration: underline;
+  background: none;
+  border: none;
+}
+
+.link:hover {
+  color: var(--primaria-hover);
+  background: none;
+}
+
+/* ===== Celular ===== */
+@media (max-width: 480px) {
+  main {
+    padding-top: 24px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  #lista li {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #lista .botoes button {
+    flex: 1;
+  }
+}
